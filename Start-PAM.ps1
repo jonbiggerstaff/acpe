@@ -1,20 +1,22 @@
-﻿#Globals - Set these for your organization
+﻿#This script will add an account to privileged groups. It MUST be used in conjunction with the RemoveExpiredPrivileges.ps1 script in order for account to be removed from groups.
+
+#Globals - Set these for your organization
     #Script title. Change when new version is released
-    $ScriptTitle = "==================== Welcome to Privileged Access Management 2.2 ===================="
+        $ScriptTitle = "==================== Welcome to Privileged Access Management 2.2 ===================="
     #Put your AD administrator account in the domain\username format. Example: abc\administrator
-    $domainAndUsername = "ms\administrator"
+        $domainAndUsername = "ms\administrator"
     #Put your domain in the "LDAP://DC=mydomain,DC=org" format. Example, for the AD domain in abc.xyz.org put "LDAP://DC=abc,DC=xyz,DC=org"
-    $CurrentDomain = "LDAP://DC=ms,DC=nsd,DC=org"
+        $CurrentDomain = "LDAP://DC=ms,DC=nsd,DC=org"
     #Send Mail From address
-    $SendMailFrom = "loki@nsd.org"
+        $SendMailFrom = "loki@nsd.org"
     #Send Mail To Teams channel address. This is optional so comment or uncomment the Send-MailMessage lines in this script to enable or disable
-    $SendMailToChannel = "TempElevatedAccess - AC - Server Team <4ef1a885.nsd.org@amer.teams.ms>"
+        $SendMailToChannel = "TempElevatedAccess - AC - Server Team <4ef1a885.nsd.org@amer.teams.ms>"
     #Send Mail to email recipients. This is optional so comment or uncomment the Send-MailMessage lines in this script to enable or disable
-    $SendMailToRecipients = "jbiggerstaff@nsd.org","ckacoroski@nsd.org"
+        $SendMailToRecipients = "jbiggerstaff@nsd.org","ckacoroski@nsd.org"
     #SMTP server
-    $SMTPserver = "sys.nsd.org"
+        $SMTPserver = "sys.nsd.org"
     #Location for data files. IMPORTANT: Make sure the folder structure already exists. The script will create the files but not the folders. The account that runs the script will also need write access to this location
-    #$PAMFiles = "\\scheduler1\c$\nsd\script\PrivAccess"
+        $PAMFiles = "\\scheduler1\c$\nsd\script\PrivAccess"
 
 function Start-PAM {
 
