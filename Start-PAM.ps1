@@ -8,7 +8,7 @@
     #Put your domain in the "LDAP://DC=mydomain,DC=org" format. Example, for the AD domain abc.xyz.org put "LDAP://DC=abc,DC=xyz,DC=org"
         $CurrentDomain = "LDAP://DC=mydomain,DC=org"
     #Send Mail From address
-        $SendMailFrom = "<sender@mydomain.org>"
+        $SendMailFrom = "sender@mydomain.org"
     #Send Mail To Teams channel address. This is optional so comment or uncomment the Send-MailMessage lines in this script to enable or disable
         $SendMailToChannel = "Your Teams channel <123456.mydomain.org@amer.teams.ms>"
     #Send Mail to email recipients. This is optional so comment or uncomment the Send-MailMessage lines in this script to enable or disable
