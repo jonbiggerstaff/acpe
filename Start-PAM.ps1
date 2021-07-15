@@ -136,7 +136,7 @@ function Start-PAM {
                     "
                 $LogMsg | Out-File $logLocation -Append
 #To disable Teams channel alerts, comment the following line
-                Send-MailMessage -From $SendMailFrom -To $SendMailTo -SmtpServer $SMTPserver -Subject "Privileged Access Notification" -Body $LogMsg
+                Send-MailMessage -From $SendMailFrom -To $SendMailToChannel -SmtpServer $SMTPserver -Subject "Privileged Access Notification" -Body $LogMsg
 #To disable email alerts, comment the following line
                 #Send-MailMessage -From $SendMailFrom -To $SendMailToRecipients -SmtpServer $SMTPserver -Subject "Privileged Access Notification" -Body $mailBody -BodyAsHtml
 
@@ -183,7 +183,7 @@ function Start-PAM {
                     "
                 $LogMsg | Out-File $logLocation -Append
 #To disable Teams channel alerts, comment the following line
-                Send-MailMessage -From $SendMailFrom -To $SendMailTo -SmtpServer $SMTPserver -Subject "Privileged Access Notification" -Body $LogMsg
+                Send-MailMessage -From $SendMailFrom -To $SendMailToChannel -SmtpServer $SMTPserver -Subject "Privileged Access Notification" -Body $LogMsg
 #To disable email alerts, comment the following line
                 #Send-MailMessage -From $SendMailFrom -To $SendMailToRecipients -SmtpServer $SMTPserver -Subject "Privileged Access Notification" -Body $mailBody -BodyAsHtml
                 
