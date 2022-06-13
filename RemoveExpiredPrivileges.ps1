@@ -2,11 +2,11 @@
 
 #Globals - Set these for your organization
     #Location of PAM.csv file
-        $csvlocation = "C:\script\PrivAccess\PAM.csv"
+        $csvlocation = "C:\nsd\script\PrivAccess\PAM.csv"
     #Location of log file
-        $logLocation = "C:\script\PrivAccess\PAM.log"
+        $logLocation = "C:\nsd\script\PrivAccess\PAM.log"
     #Domain controller hostname to use for PSSessions
-        $DomainController = "dc1.mydomain.org"
+        $DomainController = "dc6.ms.nsd.org"
 
 
 $csvImport = Import-Csv $csvlocation
