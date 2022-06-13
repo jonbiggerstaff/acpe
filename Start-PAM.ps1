@@ -2,21 +2,21 @@
 
 #Globals - Set these for your organization
     #Script title. Change when new version is released
-        $ScriptTitle = "==================== Welcome to Privileged Access Management 2.2 ===================="
+        $ScriptTitle = "==================== Welcome to Privileged Access Management 2.5 ===================="
     #Put your AD administrator account in the domain\username format. Example: abc\administrator
-        $domainAndUsername = "mydomain\administrator"
-    #Put your domain in the "LDAP://DC=mydomain,DC=org" format. Example, for the AD domain abc.xyz.org put "LDAP://DC=abc,DC=xyz,DC=org"
-        $CurrentDomain = "LDAP://DC=mydomain,DC=org"
+        $domainAndUsername = "ms\administrator"
+    #Put your domain in the "LDAP://DC=mydomain,DC=org" format. Example, for the AD domain in abc.xyz.org put "LDAP://DC=abc,DC=xyz,DC=org"
+        $CurrentDomain = "LDAP://DC=ms,DC=nsd,DC=org"
     #Send Mail From address
-        $SendMailFrom = "sender@mydomain.org"
+        $SendMailFrom = "loki@nsd.org"
     #Send Mail To Teams channel address. This is optional so comment or uncomment the Send-MailMessage lines in this script to enable or disable
-        $SendMailToChannel = "Your Teams channel <123456.mydomain.org@amer.teams.ms>"
+        $SendMailToChannel = "TempElevatedAccess - AC - Server Team <4ef1a885.nsd.org@amer.teams.ms>"
     #Send Mail to email recipients. This is optional so comment or uncomment the Send-MailMessage lines in this script to enable or disable
-        $SendMailToRecipients = "address1@mydomain.org","address2@mydomain.org"
+        $SendMailToRecipients = "jbiggerstaff@nsd.org","ckacoroski@nsd.org"
     #SMTP server
-        $SMTPserver = "mysmtpserver.mydomain.org"
-    #Location for csv and log file (ex: \\server1\c$\script). IMPORTANT: Make sure the folder structure already exists. The script will create the files but not the folders. The account that runs the script will also need write access to this location
-        $PAMFiles = "\\server1\c$\script"
+        $SMTPserver = "sys1.nsd.org"
+    #Location for data files. IMPORTANT: Make sure the folder structure already exists. The script will create the files but not the folders. The account that runs the script will also need write access to this location
+        $PAMFiles = "\\scheduler1\c$\nsd\script\PrivAccess"
 
 function Start-PAM {
 
@@ -50,10 +50,9 @@ function Start-PAM {
         Write-Host ""
         Write-Host -ForegroundColor Yellow $ScriptTitle
         Write-Host ""
-        Write-Host "1: AD Administrator (for admin access to AD only)"
-        Write-Host "2: Domain Admin (for access to AD and all domain joined systems)"
-        Write-Host "3: Schema Admin (for making AD schema changes)"
-        Write-Host "4: Enterprise Admin (highest level. Should be used rarely to never!)"
+        Write-Host "1: AD Administrator    (Admin access to AD only)"
+        Write-Host "2: Domain Admin        (Admin access to AD and all domain joined systems)"
+        Write-Host "3: Schema Admin        (For making AD schema changes)"
         Write-Host "q: Quit"
     }
  
@@ -69,15 +68,13 @@ function Start-PAM {
                  $Group = 'Domain Admins'
              } '3' {
                  $Group = 'Schema Admins'
-             } '4' {
-                 $Group = 'Enterprise Admins'
              } 'q' {
                  return
              }
          }
 
-    $username = [string]$(Read-Host 'Who are you granting this privilege to? (enter username)')
-    $expiration = $(Read-Host 'How many hours do they need this privilege? (Example: 2)')
+    $username = [string]$(Read-Host 'Who are you granting this privilege to? (enter username-su)')
+    $expiration = $(Read-Host 'How many hours do they need it? (Example: 2 or .5)')
     $reason = [string]$(Read-Host 'Why do they need it? (enter a brief explanation)')
 
 #Set the variables and add a PSDrive for accessing the csv and log file
