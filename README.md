@@ -11,7 +11,7 @@
 
   # Other
     1. You must set the global variables at the top of Start-PAM.ps1 and RemoveExpiredPrivileges.ps1 to your org environment
-    2. You will need to add the Start-PAM script to a PS module and import the module before running it. Otherwise, you can call the script directly but will need to add "Start-PAM" to the very end of the script to it will run
+    2. You will need to add the Start-PAM script to a PS module and import the module before running it. Otherwise, you can call the script directly but will need to add "Start-PAM" to the very end of the script so it will run
 
   # Questions or comments?
     jbiggerstaff@nsd.org
