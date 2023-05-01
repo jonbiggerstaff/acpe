@@ -1,12 +1,12 @@
 ﻿#Set a scheduled task to run this script every 5 minutes. It will check for expired credentials and remove them from privileged groups. This is meant to be used in conjunction with Start-PAM script.
 
 #Globals - Set these for your organization
-    #Location of PAM.csv file
-        $csvlocation = "C:\nsd\script\PrivAccess\PAM.csv"
-    #Location of log file
-        $logLocation = "C:\nsd\script\PrivAccess\PAM.log"
-    #Domain controller hostname to use for PSSessions
-        $DomainController = "dc6.ms.nsd.org"
+    #Location of PAM.csv file (local path)
+        $csvlocation = ""
+    #Location of log file (local path)
+        $logLocation = ""
+    #Domain controller hostname to use for PSSessions (example dc1.domain.org)
+        $DomainController = ""
 
 
 $csvImport = Import-Csv $csvlocation
