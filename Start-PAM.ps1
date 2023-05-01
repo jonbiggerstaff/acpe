@@ -4,19 +4,19 @@
     #Script title. Change when new version is released
         $ScriptTitle = "==================== Welcome to Privileged Access Management 2.5 ===================="
     #Put your AD administrator account in the domain\username format. Example: abc\administrator
-        $domainAndUsername = "ms\administrator"
+        $domainAndUsername = ""
     #Put your domain in the "LDAP://DC=mydomain,DC=org" format. Example, for the AD domain in abc.xyz.org put "LDAP://DC=abc,DC=xyz,DC=org"
-        $CurrentDomain = "LDAP://DC=ms,DC=nsd,DC=org"
+        $CurrentDomain = ""
     #Send Mail From address
-        $SendMailFrom = "loki@nsd.org"
+        $SendMailFrom = ""
     #Send Mail To Teams channel address. This is optional so comment or uncomment the Send-MailMessage lines in this script to enable or disable
-        $SendMailToChannel = "TempElevatedAccess - AC - Server Team <4ef1a885.nsd.org@amer.teams.ms>"
-    #Send Mail to email recipients. This is optional so comment or uncomment the Send-MailMessage lines in this script to enable or disable
-        $SendMailToRecipients = "jbiggerstaff@nsd.org","ckacoroski@nsd.org"
+        $SendMailToChannel = ""
+    #Send Mail to email recipients. This is optional so comment or uncomment the Send-MailMessage lines in this script to enable or disable. Add commas for multiple addresses
+        $SendMailToRecipients = ""
     #SMTP server
-        $SMTPserver = "sys1.nsd.org"
-    #Location for data files. IMPORTANT: Make sure the folder structure already exists. The script will create the files but not the folders. The account that runs the script will also need write access to this location
-        $PAMFiles = "\\scheduler1\c$\nsd\script\PrivAccess"
+        $SMTPserver = ""
+    #UNV path for data files. IMPORTANT: Make sure the folder structure already exists. The script will create the files but not the folders. The account that runs the script will also need write access to this location
+        $PAMFiles = ""
 
 function Start-PAM {
 
