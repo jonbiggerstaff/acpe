@@ -1,26 +1,24 @@
-﻿# 4368657374657273205765646765
-
 #This script will add an account to privileged groups. It MUST be used in conjunction with the RemoveExpiredPrivileges.ps1 script in order for account to be removed from groups.
 
 #Globals - Set these for your organization
     #Script title. Change when new version is released
         $ScriptTitle = "==================== Welcome to Privileged Access Management 2.6 ===================="
     #Put your AD administrator account in the domain\username format. Example: abc\administrator
-        $domainAndUsername = "ms\administrator"
+        $domainAndUsername = ""
     #Put your domain in the "LDAP://DC=mydomain,DC=org" format. Example, for the AD domain in abc.xyz.org put "LDAP://DC=abc,DC=xyz,DC=org"
-        $CurrentDomain = "LDAP://DC=ms,DC=nsd,DC=org"
+        $CurrentDomain = ""
     #Send Mail From address
-        $SendMailFrom = "loki@nsd.org"
+        $SendMailFrom = ""
     #Send Mail To Teams channel address. Set next line to $true or $false
-        $ChannelAlertsEnabled = $true
-        $SendMailToChannel = "TempElevatedAccess - AC - Server Team <4ef1a885.nsd.org@amer.teams.ms>"
+        $ChannelAlertsEnabled = $false
+        $SendMailToChannel = ""
     #Send Mail to email recipients. Set next line to $true or $false
         $MailAlertsEnabled = $false
-        $SendMailToRecipients = "jbiggerstaff@nsd.org","ckacoroski@nsd.org"
+        $SendMailToRecipients = ""
     #SMTP server
-        $SMTPserver = "sys1.nsd.org"
+        $SMTPserver = ""
     #Location for data files. IMPORTANT: Make sure the folder structure already exists. The script will create the files but not the folders. The account that runs the script will also need write access to this location
-        $PAMFiles = "\\scheduler1\c$\nsd\script\PrivAccess"
+        $PAMFiles = ""
 
 #Functions
 
@@ -111,7 +109,6 @@ function Start-PAM {
                         } 'q' {
                             return
                         }
-            
                     }
                 }
                 until (($Selection -eq "1") -or ($Selection -eq "2") -or ($Selection -eq "3") -or ($Selection -eq "q"))        
