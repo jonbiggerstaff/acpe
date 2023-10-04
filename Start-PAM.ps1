@@ -46,7 +46,7 @@ function Start-PAM {
                      write-host "Successfully authenticated with domain $domainName"
                 }
     }
-
+<#
     function Confirm-TargetUser {
                 do {
                 $a = $a + 1
@@ -63,7 +63,7 @@ function Start-PAM {
                     break
                 }
     }
-
+#>
     function Refresh-KerberosTicket {
                 if ($env:USERNAME -eq $username) {
                     Start-Sleep -Seconds 3
@@ -119,7 +119,8 @@ function Start-PAM {
 
 #Ask all the questions
     Select-Option
-    Confirm-TargetUser
+#    Confirm-TargetUser
+    $username = [string]$(Read-Host 'Who are you granting this privilege to? (enter username-su)')
     $expiration = $(Read-Host 'How many hours do they need it? (Example: 1 or .5)')
     $reason = [string]$(Read-Host 'Why do they need it? (enter a brief explanation)')
 
