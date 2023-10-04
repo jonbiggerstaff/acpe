@@ -1,23 +1,25 @@
 #This script will add an account to privileged groups. It MUST be used in conjunction with the RemoveExpiredPrivileges.ps1 script in order for account to be removed from groups.
 
 #Globals - Set these for your organization
-    #Script title. Change when new version is released
+    #Script title. Change only when new version is released
         $ScriptTitle = "==================== Welcome to Privileged Access Management 2.6 ===================="
     #Put your AD administrator account in the domain\username format. Example: abc\administrator
         $domainAndUsername = ""
-    #Put your domain in the "LDAP://DC=mydomain,DC=org" format. Example, for the AD domain in abc.xyz.org put "LDAP://DC=abc,DC=xyz,DC=org"
+    #Put your domain in the "LDAP://DC=mydomain,DC=org" format. Example, for the AD domain "abc.xyz.org" put "LDAP://DC=abc,DC=xyz,DC=org"
         $CurrentDomain = ""
-    #Send Mail From address
-        $SendMailFrom = ""
-    #Send Mail To Teams channel address. Set next line to $true or $false
+    #To send alerts to Teams channel address, set next line to $true. Otherwise, set to $false
         $ChannelAlertsEnabled = $false
+    #Add email address that is associated with the Teams channel you want alerts sent to. Only needed if $ChannelAlertsEnabled=$true
         $SendMailToChannel = ""
-    #Send Mail to email recipients. Set next line to $true or $false
+    #To send mail alerts to email recipients, set next line to $true. Otherwise, set to $false
         $MailAlertsEnabled = $false
+    #Add comma delimited email addresses. Only needed if $MailAlertsEnabled=$true
         $SendMailToRecipients = ""
-    #SMTP server
+    #SMTP server. Only needed if $MailAlertsEnabled=$true
         $SMTPserver = ""
-    #Location for data files. IMPORTANT: Make sure the folder structure already exists. The script will create the files but not the folders. The account that runs the script will also need write access to this location
+    #Send Mail From address. Only needed if $MailAlertsEnabled=$true
+        $SendMailFrom = ""
+    #Location for data files in UNC format (\\server\sharedfolder). IMPORTANT: Make sure the folder structure already exists. The script will create the files but not the folders. The account that the script runs under will also need write access to this location
         $PAMFiles = ""
 
 #Functions
