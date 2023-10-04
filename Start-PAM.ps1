@@ -122,7 +122,7 @@ function Start-PAM {
 #Ask all the questions
     Select-Option
 #    Confirm-TargetUser
-    $username = [string]$(Read-Host 'Who are you granting this privilege to? (enter username-su)')
+    $username = [string]$(Read-Host 'Who are you granting this privilege to? (enter username)')
     $expiration = $(Read-Host 'How many hours do they need it? (Example: 1 or .5)')
     $reason = [string]$(Read-Host 'Why do they need it? (enter a brief explanation)')
 
